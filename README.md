@@ -4,6 +4,10 @@ This is a keyboard firmware with some useful features for Atmel AVR controller.
 
 Source code is available here: <http://github.com/tmk/tmk_keyboard>
 
+**TuTan's step by step flashing guide for Windows 10**: <TODO: add link>
+
+**Note for current version of PCB**: need to jumper the signal line on 3.5mm jack to pin 3 of the Arduino Pro Micro
+
 
 Updates
 -------
