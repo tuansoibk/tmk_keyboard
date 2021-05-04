@@ -29,12 +29,12 @@ enum function_id {
 #define AC_W_CAP          ACTION_MODS_TAP_KEY(MOD_LGUI, KC_CAPS)
 #define AC_S_SFT          ACTION_MODS_TAP_KEY(MOD_LSFT, ACTION_MODS_ONESHOT(MOD_LSFT))
 #define AC_SFCTL          ACTION_MODS(MOD_LCTL | MOD_LSFT)
-#define AC_F1_F           ACTION_LAYER_TAP_KEY(1, F)
-#define AC_F1_J           ACTION_LAYER_TAP_KEY(1, J)
-#define AC_F2_K           ACTION_LAYER_TAP_KEY(2, K)
-#define AC_F2_D           ACTION_LAYER_TAP_KEY(2, D)
-#define AC_F3_S           ACTION_LAYER_TAP_KEY(3, S)
-#define AC_F3_L           ACTION_LAYER_TAP_KEY(3, L)
+#define AC_F1_F           ACTION_LAYER_TAP_KEY(1, KC_F)
+#define AC_F1_J           ACTION_LAYER_TAP_KEY(1, KC_J)
+#define AC_F2_K           ACTION_LAYER_TAP_KEY(2, KC_K)
+#define AC_F2_D           ACTION_LAYER_TAP_KEY(2, KC_D)
+#define AC_F3_S           ACTION_LAYER_TAP_KEY(3, KC_S)
+#define AC_F3_L           ACTION_LAYER_TAP_KEY(3, KC_L)
 
 
 #define AC_QWERTY         ACTION_DEFAULT_LAYER_SET(0)
@@ -50,16 +50,16 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
         /* left hand */
             GRV  , 1    , 2    , 3    , 4    , 5    ,
             TAB  , Q    , W    , E    , R    , T    ,
-            CAPS , A    , S    , D    , F    , G    ,
+            CAPS , A    , S    , F2_D , F1_F , G    ,
             LSFT , Z    , X    , C    , V    , B    ,
             ESC  , LGUI , TAB  , S_SFT, SPC  , LCTL ,
         /* right hand */
             6    , 7    , 8    , 9    , 0    , MINS ,
             Y    , U    , I    , O    , P    , LBRC ,
-            H    , J    , K    , L    , SCLN , QUOT ,
+            H    , F1_J , F2_K , L    , SCLN , QUOT ,
             N    , M    , COMM , DOT  , SLSH , EQL  ,
             SCLN , ENT  , BSPC , DOWN , UP   , RALT
-    )
+    ),
 
     /* symbol */
     [1] = ACTIONMAP(
@@ -68,7 +68,7 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
             s(9) , LBRC , UP   , RBRC , s(0) , TRNS ,
             EQL  , LEFT , DOWN , RGHT , MINS , TRNS ,
             TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , SFCTL ,
+            TRNS , TRNS , TRNS , TRNS , TRNS , SFCTL,
         /* right hand */
             F7   , F8   , F9   , F10  , F11  , F12  ,
             BSLS , DEL  , EQL  , PSCR , GRV  , TRNS ,
@@ -89,7 +89,7 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
 			TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
 			TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
             TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
+            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS 
         ),
     /* fn */
     [3] = ACTIONMAP(
@@ -104,7 +104,7 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
 			TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
 			TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
             TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-            TRNS , TRNS , FN2  , TRNS , TRNS , TRNS
+            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS
         ),
     // /* dvorak */
     // [1] = ACTIONMAP(
