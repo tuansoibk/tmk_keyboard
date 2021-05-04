@@ -15,10 +15,9 @@ enum function_id {
     PROMICRO_PROGRAM,
 };
 
-#define AC_FN0            ACTION_LAYER_TAP_TOGGLE(3)
-#define AC_FN1            ACTION_LAYER_TAP_TOGGLE(4)
-//#define AC_FN1            ACTION_MODS_TAP_KEY(MOD_LGUI, KC_CAPS)
-#define AC_FN2            ACTION_LAYER_TAP_TOGGLE(5)
+#define AC_FN0            AC_TRNS
+#define AC_FN1            AC_TRNS
+#define AC_FN2            AC_TRNS
 #define AC_FN3            ACTION_LAYER_SET_CLEAR(0)
 
 #define AC_FN4            AC_TRNS
@@ -27,8 +26,15 @@ enum function_id {
 #define AC_FN7            AC_TRNS
 #define AC_FN8            AC_PROMICRO_RESET
 
-#define AC_W_CAP		  ACTION_MODS_TAP_KEY(MOD_LGUI, KC_CAPS)
-#define AC_S_SFT	 	  ACTION_MODS_TAP_KEY(MOD_LSFT, ACTION_MODS_ONESHOT(MOD_LSFT))
+#define AC_W_CAP          ACTION_MODS_TAP_KEY(MOD_LGUI, KC_CAPS)
+#define AC_S_SFT          ACTION_MODS_TAP_KEY(MOD_LSFT, ACTION_MODS_ONESHOT(MOD_LSFT))
+#define AC_SFCTL          ACTION_MODS(MOD_LCTL | MOD_LSFT)
+#define AC_F1_F           ACTION_LAYER_TAP_KEY(1, F)
+#define AC_F1_J           ACTION_LAYER_TAP_KEY(1, J)
+#define AC_F2_K           ACTION_LAYER_TAP_KEY(2, K)
+#define AC_F2_D           ACTION_LAYER_TAP_KEY(2, D)
+#define AC_F3_S           ACTION_LAYER_TAP_KEY(3, S)
+#define AC_F3_L           ACTION_LAYER_TAP_KEY(3, L)
 
 
 #define AC_QWERTY         ACTION_DEFAULT_LAYER_SET(0)
@@ -42,18 +48,64 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* qwerty */
     [0] = ACTIONMAP(
         /* left hand */
-            NUHS , 1    , 2    , 3    , 4    , 5    ,
+            GRV  , 1    , 2    , 3    , 4    , 5    ,
             TAB  , Q    , W    , E    , R    , T    ,
             CAPS , A    , S    , D    , F    , G    ,
             LSFT , Z    , X    , C    , V    , B    ,
-            ESC  , W_CAP, TAB  , S_SFT, SPC  , LCTL ,
+            ESC  , LGUI , TAB  , S_SFT, SPC  , LCTL ,
         /* right hand */
             6    , 7    , 8    , 9    , 0    , MINS ,
             Y    , U    , I    , O    , P    , LBRC ,
             H    , J    , K    , L    , SCLN , QUOT ,
-            N    , M    , COMM , DOT  , SLSH , RSFT ,
-            FN0  , ENT  , BSPC , DOWN , QUOT , RALT
+            N    , M    , COMM , DOT  , SLSH , EQL  ,
+            SCLN , ENT  , BSPC , DOWN , UP   , RALT
     )
+
+    /* symbol */
+    [1] = ACTIONMAP(
+		/* left hand */
+			F1   , F2   , F3   , F4   , F5   , F6   ,
+            s(9) , LBRC , UP   , RBRC , s(0) , TRNS ,
+            EQL  , LEFT , DOWN , RGHT , MINS , TRNS ,
+            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
+            TRNS , TRNS , TRNS , TRNS , TRNS , SFCTL ,
+        /* right hand */
+            F7   , F8   , F9   , F10  , F11  , F12  ,
+            BSLS , DEL  , EQL  , PSCR , GRV  , TRNS ,
+            PGUP , HOME , END  , PGDN , TRNS , TRNS , 
+            TRNS , TRNS , TRNS , TRNS , BSLS , TRNS ,
+            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS
+    ),
+    /* fn */
+    [2] = ACTIONMAP(
+        /* left hand */
+            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
+            TRNS , TRNS , 7    , 8    , 9    , TRNS ,
+            TRNS , TRNS , 4    , 5    , 6    , TRNS ,
+            TRNS , TRNS , 1    , 2    , 3    , TRNS ,
+            TRNS , TRNS , TRNS , 0    , TRNS , TRNS ,
+        /* right hand */
+			TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
+			TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
+			TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
+            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
+            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
+        ),
+    /* fn */
+    [3] = ACTIONMAP(
+        /* left hand */
+            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
+            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
+            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
+            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
+            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
+        /* right hand */
+			TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
+			TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
+			TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
+            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
+            TRNS , TRNS , FN2  , TRNS , TRNS , TRNS
+        ),
     // /* dvorak */
     // [1] = ACTIONMAP(
         // /* left hand */
