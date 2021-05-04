@@ -22,8 +22,8 @@ Or you can follow the instructions from [my first reference](http://fab.cba.mit.
 #### Add PATH
 Mine looks something like this:
 
-`C:\Program Files (x86)\GnuWin32\bin`
-`C:\Program Files (x86)\Atmel\AVR Tools\AVR Toolchain\avr\bin`
+    C:\Program Files (x86)\GnuWin32\bin
+    C:\Program Files (x86)\Atmel\AVR Tools\AVR Toolchain\avr\bin
 
 If you install avrdude separately instead of using Arduino IDE, you should have to add its path as well.
 
@@ -94,22 +94,29 @@ The output should end with something like:
 - In Device Manager, under Port, you should now find Arduino Leonardo bootloader (COM#2) (COM and another number, normaly #2 = #1 + 1. e.g. COM4)
 
 (Note: If you do nothing, the Arduino board will stay in bootloader mode for only 8s)
-- Go to Makefile, change COM_PORT=<your com port>. e.g. COM_PORT=COM4
+- Go to Makefile, change COM_PORT=COM#2 
+
+e.g.
+
+    COM_PORT=COM4
+    
 
 #### Flash EEPROM
 
-EEPROM code wi
+EEPROM code define if this half is the left half or right.
 - Connect your Arduino Pro Micro to PC
 - Reset your Arduino
 - Within 8s of bootloader mode, run command:
 
 either
 
-`make eeprom-right`
+    make eeprom-right
+    
 
-or 
+or
 
-`make eeprom-left`
+    make eeprom-left
+    
 
 depending on which half you are flashing.
 
@@ -118,6 +125,7 @@ depending on which half you are flashing.
 - Reset your Arduino
 - Within 8s of bootloader mode, run command:
 
-`make program`
+	make program
+	
 
 And that should do it.
