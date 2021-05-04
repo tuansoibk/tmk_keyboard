@@ -44,6 +44,8 @@ enum function_id {
 #define AC_PROMICRO_PROGRAM  ACTION_FUNCTION_TAP(PROMICRO_PROGRAM)
 #define AC_PROMICRO_RESET    ACTION_FUNCTION_TAP(PROMICRO_RESET)
 
+// TODO ctrl space
+// TODO arrow keys in layer 1 to be shifted one key to the right
 const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* qwerty */
     [0] = ACTIONMAP(
@@ -58,7 +60,7 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
             Y    , U    , I    , O    , P    , LBRC ,
             H    , F1_J , F2_K , L    , SCLN , QUOT ,
             N    , M    , COMM , DOT  , SLSH , EQL  ,
-            SCLN , ENT  , BSPC , DOWN , UP   , RALT
+            SCLN , ENT  , BSPC , DOWN , UP   , FN3
     ),
 
     /* symbol */
