@@ -9,6 +9,8 @@ You can use Git BASH as a Mingw shell and skip this step.
 #### GNU make
 https://www.gnu.org/software/make/
 
+If you're on Windows, use https://sourceforge.net/projects/gnuwin32/
+
 #### AVR toolchain
 I used this: 
 https://ww1.microchip.com/downloads/archive/avr-toolchain-installer-3.4.1.1195-win32.win32.x86.exe
@@ -28,7 +30,7 @@ Mine looks something like this:
 If you install avrdude separately instead of using Arduino IDE, you should have to add its path as well.
 
 #### Sanity check
-Go to _keyboards\split_keyboard_ then start Git BASH (Note: You may have to start Git BASH as Admin.)
+Go to _keyboard\split_keyboard_ then start Git BASH (Note: You may have to start Git BASH as Admin.)
 
 In the bash shell, use these commands:
 
@@ -60,7 +62,9 @@ Output:
 # Flash
 
 #### Compile firmware
-Go to _keyboards\split_keyboard_ then start Git BASH (Note: You may have to start Git BASH as Admin.)
+Make sure you are on the right branch before compiling. It's the _letssplit256_ branch if you've just cloned/forked from this repo.
+
+Go to _keyboard\split_keyboard_ then start Git BASH (Note: You may have to start Git BASH as Admin.)
 
 In the bash shell, use this command:
 
