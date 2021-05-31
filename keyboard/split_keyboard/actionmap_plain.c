@@ -90,13 +90,13 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
             TAB  , B    , Y    , O    , U    , QUOT ,
             FN2  , C    , I    , E    , A    , COMM ,
             GRV  , G    , X    , J    , K    , MINS ,
-            FN1  , LGUI , LALT  , LCTL, LRBR , SPC  ,
+            FN1  , LGUI , LALT  , LCTL, SPC  , LRBR ,
         /* right hand */
             6    , 7    , 8    , 9    , 0    , PSCR ,
             DQUOT, L    , D    , W    , V    , SLSH ,
             DOT  , H    , T    , S    , N    , FN2 ,
             EQUAL, R    , M    , F    , P    , Q    ,
-            BSPC , RRBR , RCTL , ENT  , Z    , FN1
+            RRBR , BSPC , RCTL , ENT  , Z    , FN1
     ),
     /* fn */
     [1] = ACTIONMAP(
@@ -107,9 +107,9 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
             TRNS , TRNS , VOLD , TRNS , END  , TRNS ,
             TRNS , TRNS , TRNS , TRNS , LSFT , TRNS ,
         /* right hand */
-			F7   , F8   , F9   , F10  , F11  , F12  ,
-			INS  , HOME , UP   , PGUP , PAUS , TRNS ,
-			DEL  , LEFT , DOWN , RIGHT, TRNS , TRNS ,
+            F7   , F8   , F9   , F10  , F11  , F12  ,
+            INS  , HOME , UP   , PGUP , PAUS , TRNS ,
+            DEL  , LEFT , DOWN , RIGHT, TRNS , TRNS ,
             SLCK , END  , MENU , PGDN , TRNS , TRNS ,
             TRNS , RSFT , TRNS , RALT , TRNS , TRNS
         ),
@@ -120,12 +120,12 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
             TRNS , CAPB , CAPY , CAPO , CAPU , LANG ,
             TRNS , CAPC , CAPI , CAPE , CAPA , SCLN ,
             TILD , CAPG , CAPX , CAPJ , CAPK , UNDS ,
-            LSFT , TRNS , TRNS , TRNS , LBRC , TRNS ,
+            LSFT , TRNS , TRNS , TRNS , TRNS , LBRC ,
         /* right hand */
-			STAR , HASH , VBAR , CARE , PERC , TRNS ,
+            STAR , HASH , VBAR , CARE , PERC , TRNS ,
             RANG , CAPL , CAPD , CAPW , CAPV , BSLS ,
             COLN , CAPH , CAPT , CAPS , CAPN , TRNS ,
             PLUS , CAPR , CAPM , CAPF , CAPP , CAPQ ,
-            TRNS , RBRC , TRNS , TRNS , CAPZ , RSFT
+            RBRC , TRNS , TRNS , TRNS , CAPZ , RSFT
         ),
 }; 
