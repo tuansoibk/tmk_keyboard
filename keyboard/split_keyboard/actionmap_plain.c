@@ -16,15 +16,9 @@ enum function_id {
 };
 
 #define AC_FN0            AC_TRNS
-#define AC_FN1            AC_TRNS
-#define AC_FN2            AC_TRNS
+#define AC_FN1            ACTION_LAYER_MOMENTARY(1)
+#define AC_FN2            ACTION_LAYER_MOMENTARY(2)
 #define AC_FN3            ACTION_LAYER_SET_CLEAR(0)
-
-#define AC_FN4            AC_TRNS
-#define AC_FN5            AC_TRNS
-#define AC_FN6            AC_TRNS
-#define AC_FN7            AC_TRNS
-#define AC_FN8            AC_PROMICRO_RESET
 
 #define AC_W_CAP          ACTION_MODS_TAP_KEY(MOD_LGUI, KC_CAPS)
 #define AC_S_SFT          ACTION_MODS_TAP_KEY(MOD_LSFT, ACTION_MODS_ONESHOT(MOD_LSFT))
@@ -35,11 +29,53 @@ enum function_id {
 #define AC_F2_D           ACTION_LAYER_TAP_KEY(2, KC_D)
 #define AC_F3_S           ACTION_LAYER_TAP_KEY(3, KC_S)
 #define AC_F3_L           ACTION_LAYER_TAP_KEY(3, KC_L)
+#define AC_LRBR           ACTION_MODS_KEY(MOD_LSFT, KC_9)
+#define AC_RRBR           ACTION_MODS_KEY(MOD_LSFT, KC_0)
+#define AC_DQUOT          ACTION_MODS_KEY(MOD_LSFT, KC_QUOTE)
 
-
-#define AC_QWERTY         ACTION_DEFAULT_LAYER_SET(0)
-#define AC_DVORAK         ACTION_DEFAULT_LAYER_SET(1)
-#define AC_COLEMAK        ACTION_DEFAULT_LAYER_SET(2)
+/* for layer 2 */
+#define AC_EXCL             ACTION_MODS_KEY(MOD_LSFT, KC_1)
+#define AC_QUES             ACTION_MODS_KEY(MOD_LSFT, KC_SLSH)
+#define AC_AMPS             ACTION_MODS_KEY(MOD_LSFT, KC_7)
+#define AC_DOLA             ACTION_MODS_KEY(MOD_LSFT, KC_4)
+#define AC_AT               ACTION_MODS_KEY(MOD_LSFT, KC_2)
+#define AC_STAR             ACTION_MODS_KEY(MOD_LSFT, KC_8)
+#define AC_HASH             ACTION_MODS_KEY(MOD_LSFT, KC_3)
+#define AC_VBAR             ACTION_MODS_KEY(MOD_LSFT, KC_BSLS)
+#define AC_CARE             ACTION_MODS_KEY(MOD_LSFT, KC_6)
+#define AC_PERC             ACTION_MODS_KEY(MOD_LSFT, KC_5)
+#define AC_CAPB             ACTION_MODS_KEY(MOD_LSFT, KC_B)
+#define AC_CAPY             ACTION_MODS_KEY(MOD_LSFT, KC_Y)
+#define AC_CAPO             ACTION_MODS_KEY(MOD_LSFT, KC_O)
+#define AC_CAPU             ACTION_MODS_KEY(MOD_LSFT, KC_U)
+#define AC_LANG             ACTION_MODS_KEY(MOD_LSFT, KC_COMM)
+#define AC_RANG             ACTION_MODS_KEY(MOD_LSFT, KC_DOT)
+#define AC_CAPL             ACTION_MODS_KEY(MOD_LSFT, KC_L)
+#define AC_CAPD             ACTION_MODS_KEY(MOD_LSFT, KC_D)
+#define AC_CAPW             ACTION_MODS_KEY(MOD_LSFT, KC_W)
+#define AC_CAPV             ACTION_MODS_KEY(MOD_LSFT, KC_V)
+#define AC_CAPC             ACTION_MODS_KEY(MOD_LSFT, KC_C)
+#define AC_CAPI             ACTION_MODS_KEY(MOD_LSFT, KC_I)
+#define AC_CAPE             ACTION_MODS_KEY(MOD_LSFT, KC_E)
+#define AC_CAPA             ACTION_MODS_KEY(MOD_LSFT, KC_A)
+#define AC_COLN             ACTION_MODS_KEY(MOD_LSFT, KC_SCLN)
+#define AC_CAPH             ACTION_MODS_KEY(MOD_LSFT, KC_H)
+#define AC_CAPT             ACTION_MODS_KEY(MOD_LSFT, KC_T)
+#define AC_CAPS             ACTION_MODS_KEY(MOD_LSFT, KC_S)
+#define AC_CAPN             ACTION_MODS_KEY(MOD_LSFT, KC_N)
+#define AC_TILD             ACTION_MODS_KEY(MOD_LSFT, KC_GRV)
+#define AC_CAPG             ACTION_MODS_KEY(MOD_LSFT, KC_G)
+#define AC_CAPX             ACTION_MODS_KEY(MOD_LSFT, KC_X)
+#define AC_CAPJ             ACTION_MODS_KEY(MOD_LSFT, KC_J)
+#define AC_CAPK             ACTION_MODS_KEY(MOD_LSFT, KC_K)
+#define AC_UNDS             ACTION_MODS_KEY(MOD_LSFT, KC_MINS)
+#define AC_PLUS             ACTION_MODS_KEY(MOD_LSFT, KC_EQL)
+#define AC_CAPR             ACTION_MODS_KEY(MOD_LSFT, KC_R)
+#define AC_CAPM             ACTION_MODS_KEY(MOD_LSFT, KC_M)
+#define AC_CAPF             ACTION_MODS_KEY(MOD_LSFT, KC_F)
+#define AC_CAPP             ACTION_MODS_KEY(MOD_LSFT, KC_P)
+#define AC_CAPQ             ACTION_MODS_KEY(MOD_LSFT, KC_Q)
+#define AC_CAPZ             ACTION_MODS_KEY(MOD_LSFT, KC_Z)
 
 #define AC_PROMICRO_PROGRAM  ACTION_FUNCTION_TAP(PROMICRO_PROGRAM)
 #define AC_PROMICRO_RESET    ACTION_FUNCTION_TAP(PROMICRO_RESET)
@@ -47,265 +83,49 @@ enum function_id {
 // TODO ctrl space
 // TODO arrow keys in layer 1 to be shifted one key to the right
 const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    /* qwerty */
+    /* engram */
     [0] = ACTIONMAP(
         /* left hand */
-            GRV  , 1    , 2    , 3    , 4    , 5    ,
-            TAB  , Q    , W    , E    , R    , T    ,
-            CAPS , A    , S    , F2_D , F1_F , G    ,
-            LSFT , Z    , X    , C    , V    , B    ,
-            ESC  , LGUI , TAB  , S_SFT, SPC  , LCTL ,
+            ESC  , 1    , 2    , 3    , 4    , 5    ,
+            TAB  , B    , Y    , O    , U    , QUOT ,
+            FN2  , C    , I    , E    , A    , COMM ,
+            GRV  , G    , X    , J    , K    , MINS ,
+            FN1  , LGUI , LALT  , LCTL, LRBR , SPC  ,
         /* right hand */
-            6    , 7    , 8    , 9    , 0    , MINS ,
-            Y    , U    , I    , O    , P    , LBRC ,
-            H    , F1_J , F2_K , L    , SCLN , QUOT ,
-            N    , M    , COMM , DOT  , SLSH , EQL  ,
-            SCLN , ENT  , BSPC , DOWN , UP   , FN3
-    ),
-
-    /* symbol */
-    [1] = ACTIONMAP(
-		/* left hand */
-			F1   , F2   , F3   , F4   , F5   , F6   ,
-            s(9) , LBRC , UP   , RBRC , s(0) , TRNS ,
-            EQL  , LEFT , DOWN , RGHT , MINS , TRNS ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , SFCTL,
-        /* right hand */
-            F7   , F8   , F9   , F10  , F11  , F12  ,
-            BSLS , DEL  , EQL  , PSCR , GRV  , TRNS ,
-            PGUP , HOME , END  , PGDN , TRNS , TRNS , 
-            TRNS , TRNS , TRNS , TRNS , BSLS , TRNS ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS
+            6    , 7    , 8    , 9    , 0    , PSCR ,
+            DQUOT, L    , D    , W    , V    , SLSH ,
+            DOT  , H    , T    , S    , N    , FN2 ,
+            EQUAL, R    , M    , F    , P    , Q    ,
+            BSPC , RRBR , RCTL , ENT  , Z    , FN1
     ),
     /* fn */
+    [1] = ACTIONMAP(
+        /* left hand */
+            F1   , F2   , F3   , F4   , F5   , F6   ,
+            TRNS , MUTE , VOLU , UP   , HOME , TRNS ,
+            TRNS , CAPS , LEFT , DOWN , RIGHT, TRNS ,
+            TRNS , TRNS , VOLD , TRNS , END  , TRNS ,
+            TRNS , TRNS , TRNS , TRNS , LSFT , TRNS ,
+        /* right hand */
+			F7   , F8   , F9   , F10  , F11  , F12  ,
+			INS  , HOME , UP   , PGUP , PAUS , TRNS ,
+			DEL  , LEFT , DOWN , RIGHT, TRNS , TRNS ,
+            SLCK , END  , MENU , PGDN , TRNS , TRNS ,
+            TRNS , RSFT , TRNS , RALT , TRNS , TRNS
+        ),
+    /* fn + shift */
     [2] = ACTIONMAP(
         /* left hand */
-            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-            TRNS , TRNS , 7    , 8    , 9    , TRNS ,
-            TRNS , TRNS , 4    , 5    , 6    , TRNS ,
-            TRNS , TRNS , 1    , 2    , 3    , TRNS ,
-            TRNS , TRNS , TRNS , 0    , TRNS , TRNS ,
+            TRNS , EXCL , QUES , AMPS , DOLA , AT   ,
+            TRNS , CAPB , CAPY , CAPO , CAPU , LANG ,
+            TRNS , CAPC , CAPI , CAPE , CAPA , SCLN ,
+            TILD , CAPG , CAPX , CAPJ , CAPK , UNDS ,
+            LSFT , TRNS , TRNS , TRNS , LBRC , TRNS ,
         /* right hand */
-			TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-			TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-			TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS 
+			STAR , HASH , VBAR , CARE , PERC , TRNS ,
+            RANG , CAPL , CAPD , CAPW , CAPV , BSLS ,
+            COLN , CAPH , CAPT , CAPS , CAPN , TRNS ,
+            PLUS , CAPR , CAPM , CAPF , CAPP , CAPQ ,
+            TRNS , RBRC , TRNS , TRNS , CAPZ , RSFT
         ),
-    /* fn */
-    [3] = ACTIONMAP(
-        /* left hand */
-            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-        /* right hand */
-			TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-			TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-			TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS
-        ),
-    // /* dvorak */
-    // [1] = ACTIONMAP(
-        // /* left hand */
-            // QUOT , COMM , DOT  , P    , Y    ,
-            // A    , O    , E    , U    , I    ,
-            // SCLN , Q    , J    , K    , X    ,
-            // TRNS , TRNS , TRNS , TRNS , TRNS , TRNS , 
-        // /* right hand */
-                   // F    , G    , C    , R    , L    , 
-                   // D    , H    , T    , N    , S    ,
-                   // B    , M    , W    , V    , Z    ,
-            // TRNS , TRNS , TRNS , TRNS , TRNS , TRNS
-    // ),
-    // /* colemak */
-    // [2] = ACTIONMAP(
-        // /* left hand */
-            // Q    , W    , F    , P    , G    ,
-            // A    , R    , S    , T    , D    ,
-            // Z    , X    , C    , V    , B    ,
-            // TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-        // /* right hand */
-                   // J    , L    , U    , Y    , SCLN ,
-                   // H    , N    , E    , I    , O    ,
-                   // K    , M    , COMM , DOT  , SLSH ,
-            // TRNS , TRNS , TRNS , TRNS , TRNS , TRNS
-   // ),
-   // /* symbol */
-   // [3] = ACTIONMAP(
-		// /* left hand */
-			// 1    , 2    , 3    , 4    , 5    ,
-            // s(9) , LBRC , UP   , RBRC , s(0) ,
-            // EQL  , LEFT , DOWN , RGHT , MINS ,
-            // TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-        // /* right hand */
-                   // 6    , 7    , 8    , 9    , 0    ,
-                   // BSLS , DEL  , EQL  , PSCR , GRV  ,
-                   // HOME , PGUP , PGDN , END  , INS  ,
-            // TRNS , FN1  , TRNS , TRNS , TRNS , TRNS
-    // ),
-    // /* fn */
-    // [4] = ACTIONMAP(
-        // /* left hand */
-            // TRNS , TRNS , TRNS , TRNS , TRNS ,
-            // TRNS , TRNS , TRNS , TRNS , TRNS ,
-            // F1   , F2   , F3   , F4   , F5   ,
-            // TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-        // /* right hand */
-				   // TRNS , TRNS , TRNS , TRNS , TRNS ,
-				   // TRNS , TRNS , TRNS , TRNS , TRNS ,
-				   // F6   , F7   , F8   , F9   , F10  ,
-            // TRNS , TRNS , FN2  , TRNS , TRNS , TRNS
-        // ),
-    // /* media */
-    // [5] = ACTIONMAP(
-        // /* left hand */
-            // FN4  , FN5  , FN6  , FN7  , FN8   ,
-            // TRNS , TRNS , TRNS , TRNS , TRNS , 
-            // TRNS , TRNS , TRNS , TRNS , TRNS , 
-            // TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-        // /* right hand */
-                   // TRNS , TRNS , TRNS , TRNS , TRNS , 
-                   // TRNS , TRNS , TRNS , TRNS , TRNS , 
-                   // TRNS , TRNS , TRNS , TRNS , TRNS ,
-            // TRNS , TRNS , TRNS , FN3  , TRNS , TRNS
-    // ),
-};
-
-void promicro_bootloader_jmp(bool program) {
-    uint16_t *const bootKeyPtr = (uint16_t *)0x0800;
-
-    // Value used by Caterina bootloader use to determine whether to run the
-    // sketch or the bootloader programmer.
-    uint16_t bootKey = program ? 0x7777 : 0;
-
-    *bootKeyPtr = bootKey;
-
-    // setup watchdog timeout
-    wdt_enable(WDTO_60MS);
-
-    while(1) {} // wait for watchdog timer to trigger
-}
-
-#define KPRINT_DELAY 1
-void kput_char(char c) {
-    uint8_t code = 0;
-    uint8_t mods = 0;
-    if ('a' <= c && c <= 'z') {
-        code = (c - 'a') + KC_A;
-    } else if ('A' <= c && c <= 'Z') {
-        code = (c - 'A') + KC_A;
-        mods = MOD_BIT(KC_LSHIFT);
-    } else if ('0' <= c && c <= '9') {
-        code = (c == '0') ? KC_0 : (c - '1') + KC_1;
-    } else {
-        switch (c) {
-            case ' ': code = KC_SPACE; break;
-            case '\n': code = KC_ENTER; break;
-            case '\t': code = KC_TAB; break;
-            case ';': code = KC_SCOLON; break;
-            case ',': code = KC_COMMA; break;
-            case '.': code = KC_DOT; break;
-            case '/': code = KC_SLASH; break;
-            case '\\': code = KC_BSLASH; break;
-            case '[': code = KC_LBRACKET; break;
-            case ']': code = KC_RBRACKET; break;
-            case '-': code = KC_MINUS; break;
-            case '=': code = KC_EQUAL; break;
-            case '`': code = KC_GRAVE; break;
-            case '\'': code = KC_QUOTE; break;
-        }
-        if (!code) {
-            switch (c) {
-                case ':': code = KC_SCOLON; break;
-                case '<': code = KC_COMMA; break;
-                case '>': code = KC_DOT; break;
-                case '?': code = KC_SLASH; break;
-                case '|': code = KC_BSLASH; break;
-                case '{': code = KC_LBRACKET; break;
-                case '}': code = KC_RBRACKET; break;
-                case '_': code = KC_MINUS; break;
-                case '+': code = KC_EQUAL; break;
-                case '~': code = KC_GRAVE; break;
-                case '"': code = KC_QUOTE; break;
-
-                case '!': code = KC_1; break;
-                case '@': code = KC_2; break;
-                case '#': code = KC_3; break;
-                case '$': code = KC_4; break;
-                case '%': code = KC_5; break;
-                case '^': code = KC_6; break;
-                case '&': code = KC_7; break;
-                case '*': code = KC_8; break;
-                case '(': code = KC_9; break;
-                case ')': code = KC_0; break;
-            }
-            mods = code ? MOD_BIT(KC_LSHIFT) : 0;
-        }
-    }
-    if (!code) {
-        code = KC_SLASH;
-        mods = MOD_BIT(KC_LSHIFT);
-    }
-
-    // key down
-    add_weak_mods(mods);
-    register_code(code);
-
-    wait_ms(KPRINT_DELAY);
-
-    // key up
-    del_weak_mods(mods);
-    unregister_code(code);
-    /* send_keyboard_report(); */
-}
-
-void kprint(char *s) {
-    while(*s) {
-        kput_char(*s);
-        s++;
-    }
-}
-
-/*
- * user defined action function
- */
-void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
-{
-    uint8_t tap_count = record->tap.count;
-    switch (id) {
-        case RESET_LAYER_STATE:
-            if (record->event.pressed) {
-                if (!get_oneshot_locked_mods() && !get_oneshot_layer_state()) {
-                    register_code(KC_ESC);
-                }
-            } else {
-                if (!get_oneshot_locked_mods() && !get_oneshot_layer_state()) {
-                    unregister_code(KC_ESC);
-                } else {
-                    reset_oneshot_layer();
-                    clear_oneshot_locked_mods();
-                    layer_clear();
-                    clear_keyboard();
-                }
-            }
-            break;
-        case PROMICRO_RESET:
-            if(tap_count == 5) {
-                promicro_bootloader_jmp(false);
-            }
-            break;
-        case PROMICRO_PROGRAM:
-            if(tap_count == 5) {
-                promicro_bootloader_jmp(true);
-            }
-            break;
-        default:
-            break;
-    }
-}
-
-// vim:sw=4:
+}; 
