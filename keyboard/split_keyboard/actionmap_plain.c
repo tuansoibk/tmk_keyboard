@@ -101,14 +101,14 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* fn */
     [1] = ACTIONMAP(
         /* left hand */
-            F1   , F2   , F3   , F4   , F5   , F6   ,
-            TRNS , MUTE , VOLU , UP   , HOME , TRNS ,
-            TRNS , CAPS , LEFT , DOWN , RIGHT, TRNS ,
+            TRNS , F1   , F2   , F3   , F4   , F5   ,
+            CLCK , MUTE , VOLU , UP   , HOME , TRNS ,
+            TRNS , TRNS , LEFT , DOWN , RIGHT, TRNS ,
             TRNS , TRNS , VOLD , TRNS , END  , TRNS ,
             TRNS , TRNS , TRNS , TRNS , LSFT , TRNS ,
         /* right hand */
-            F7   , F8   , F9   , F10  , F11  , F12  ,
-            INS  , HOME , UP   , PGUP , PAUS , TRNS ,
+            F6   , F7   , F8   , F9   , F10  , F11  ,
+            INS  , HOME , UP   , PGUP , PAUS , F12  ,
             DEL  , LEFT , DOWN , RIGHT, TRNS , TRNS ,
             SLCK , END  , MENU , PGDN , TRNS , TRNS ,
             TRNS , RSFT , TRNS , RALT , TRNS , TRNS
