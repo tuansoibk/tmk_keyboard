@@ -18,17 +18,7 @@ enum function_id {
 #define AC_FN0            AC_TRNS
 #define AC_FN1            ACTION_LAYER_MOMENTARY(1)
 #define AC_FN2            ACTION_LAYER_MOMENTARY(2)
-#define AC_FN3            ACTION_LAYER_SET_CLEAR(0)
 
-#define AC_W_CAP          ACTION_MODS_TAP_KEY(MOD_LGUI, KC_CAPS)
-#define AC_S_SFT          ACTION_MODS_TAP_KEY(MOD_LSFT, ACTION_MODS_ONESHOT(MOD_LSFT))
-#define AC_SFCTL          ACTION_MODS(MOD_LCTL | MOD_LSFT)
-#define AC_F1_F           ACTION_LAYER_TAP_KEY(1, KC_F)
-#define AC_F1_J           ACTION_LAYER_TAP_KEY(1, KC_J)
-#define AC_F2_K           ACTION_LAYER_TAP_KEY(2, KC_K)
-#define AC_F2_D           ACTION_LAYER_TAP_KEY(2, KC_D)
-#define AC_F3_S           ACTION_LAYER_TAP_KEY(3, KC_S)
-#define AC_F3_L           ACTION_LAYER_TAP_KEY(3, KC_L)
 #define AC_LRBR           ACTION_MODS_KEY(MOD_LSFT, KC_9)
 #define AC_RRBR           ACTION_MODS_KEY(MOD_LSFT, KC_0)
 #define AC_DQUOT          ACTION_MODS_KEY(MOD_LSFT, KC_QUOTE)
@@ -76,6 +66,8 @@ enum function_id {
 #define AC_CAPP             ACTION_MODS_KEY(MOD_LSFT, KC_P)
 #define AC_CAPQ             ACTION_MODS_KEY(MOD_LSFT, KC_Q)
 #define AC_CAPZ             ACTION_MODS_KEY(MOD_LSFT, KC_Z)
+#define AC_LCBR             ACTION_MODS_KEY(MOD_LSFT, KC_LBRC)
+#define AC_RCBR             ACTION_MODS_KEY(MOD_LSFT, KC_RBRC)
 
 #define AC_PROMICRO_PROGRAM  ACTION_FUNCTION_TAP(PROMICRO_PROGRAM)
 #define AC_PROMICRO_RESET    ACTION_FUNCTION_TAP(PROMICRO_RESET)
@@ -89,14 +81,14 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
             ESC  , 1    , 2    , 3    , 4    , 5    ,
             TAB  , B    , Y    , O    , U    , QUOT ,
             FN2  , C    , I    , E    , A    , COMM ,
-            GRV  , G    , X    , J    , K    , MINS ,
-            FN1  , LGUI , LALT  , LCTL, SPC  , LRBR ,
+            LSFT , G    , X    , J    , K    , MINS ,
+            FN1  , LGUI , LALT , LCTL , SPC  , LRBR ,
         /* right hand */
             6    , 7    , 8    , 9    , 0    , PSCR ,
             DQUOT, L    , D    , W    , V    , SLSH ,
-            DOT  , H    , T    , S    , N    , FN2 ,
-            EQUAL, R    , M    , F    , P    , Q    ,
-            RRBR , BSPC , RCTL , ENT  , Z    , FN1
+            DOT  , H    , T    , S    , N    , FN2  ,
+            EQUAL, R    , M    , F    , P    , ENT  ,
+            RRBR , BSPC , RCTL , Q    , Z    , RALT
     ),
     /* fn */
     [1] = ACTIONMAP(
@@ -105,27 +97,27 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
             CLCK , MUTE , VOLU , UP   , HOME , TRNS ,
             TRNS , TRNS , LEFT , DOWN , RIGHT, TRNS ,
             TRNS , TRNS , VOLD , TRNS , END  , TRNS ,
-            TRNS , TRNS , TRNS , TRNS , LSFT , TRNS ,
+            TRNS , TRNS , TRNS , TRNS , LSFT , LCBR ,
         /* right hand */
             F6   , F7   , F8   , F9   , F10  , F11  ,
             INS  , HOME , UP   , PGUP , PAUS , F12  ,
             DEL  , LEFT , DOWN , RIGHT, TRNS , TRNS ,
             SLCK , END  , MENU , PGDN , TRNS , TRNS ,
-            TRNS , RSFT , TRNS , RALT , TRNS , TRNS
+            RCBR , RSFT , TRNS , TRNS , TRNS , TRNS
         ),
     /* fn + shift */
     [2] = ACTIONMAP(
         /* left hand */
             TRNS , EXCL , QUES , AMPS , DOLA , AT   ,
-            TRNS , CAPB , CAPY , CAPO , CAPU , LANG ,
+            GRV  , CAPB , CAPY , CAPO , CAPU , LANG ,
             TRNS , CAPC , CAPI , CAPE , CAPA , SCLN ,
             TILD , CAPG , CAPX , CAPJ , CAPK , UNDS ,
-            LSFT , TRNS , TRNS , TRNS , TRNS , LBRC ,
+            TRNS , TRNS , TRNS , TRNS , TRNS , LBRC ,
         /* right hand */
             STAR , HASH , VBAR , CARE , PERC , TRNS ,
             RANG , CAPL , CAPD , CAPW , CAPV , BSLS ,
             COLN , CAPH , CAPT , CAPS , CAPN , TRNS ,
-            PLUS , CAPR , CAPM , CAPF , CAPP , CAPQ ,
-            RBRC , TRNS , TRNS , TRNS , CAPZ , RSFT
+            PLUS , CAPR , CAPM , CAPF , CAPP , TRNS ,
+            RBRC , TRNS , TRNS , CAPQ , CAPZ , TRNS
         ),
 }; 
